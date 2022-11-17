@@ -19,11 +19,12 @@ def add_time(start, duration, day=False):
     new_merid = start_merid
 
     # 
+    new_day = False
+    num_days = 0
     if day is not False :
         for i in range(len(days)) :
             if days[i] == day.lower() :
                 new_day = i
-                num_days = 0
             
     #
     def add_one_hour() :
@@ -37,8 +38,8 @@ def add_time(start, duration, day=False):
                 new_merid = 'PM'
             else :
                 new_merid = 'AM'
+                num_days = num_days + 1
                 if day is not False :
-                    num_days = num_days + 1
                     if new_day + 1 > 6 :
                         new_day = 0
                     else :
